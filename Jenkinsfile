@@ -6,7 +6,6 @@ pipeline {
                 bat 'mvn -B -DskipTests clean package' 
             }
         }
-    }
 
  	stage('Test') {
             steps {
@@ -24,4 +23,5 @@ pipeline {
                 bat './jenkins/scripts/deliver.sh'
             }
         }
+}
 }
