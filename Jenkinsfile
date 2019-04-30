@@ -1,20 +1,15 @@
 pipeline {
-	agent any
-	stages {
-		stage('Build') {
-			steps {
-				echo 'This is a minimal pipeline.'
-				}
-
-			}
-
-		stage('Test') {
-			steps {
-				bat 'mvn -version'
-				}
-
-			}
-    
-	}
-
+    agent {
+        docker {
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                bat 'mvn -B -DskipTests clean package' 
+            }
+        }
+    }
 }
