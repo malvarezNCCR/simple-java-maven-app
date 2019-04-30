@@ -20,7 +20,7 @@ pipeline {
 
 	stage('Deliver') {
             steps {
-                bat './jenkins/scripts/deliver.sh'
+                bat 'C:/Users/malvarez/Documents/GitHub/simple-java-maven-app/jenkins/scripts/deliver.sh'
             }
         }
 }
